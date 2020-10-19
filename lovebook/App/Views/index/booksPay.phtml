@@ -1,0 +1,206 @@
+<?php 
+	date_default_timezone_set('America/Sao_Paulo');
+	function getAnosFromDate($date) {
+		$dateAtual = new DateTime(Date('Y-m-d'));
+		$sDate= explode('-', $date);
+		$date = new DateTime($sDate[0].'-'.$sDate[1].'-'.$sDate['2']);
+
+		$dateInterval = $date->diff($dateAtual);
+		$anos = floor($dateInterval->days / 365);
+		return $anos;
+	}
+?>
+<section>
+	<div class="content">
+
+		<div id="container-book">
+
+			<div class="row">
+				<div class="col-md-8 col-lg-9 box-book">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="container-img-book col-lg-5">
+								<img src="/imagens/books/<?= $this->view->book['img'] ?>" alt="" class="img ">
+							</div>
+
+							<div class="col infos-principal-book p-0">
+								<h1 class="infos-principal-title"><?= $this->view->book['titulo'] ?></h1> 
+
+								<div class="content-info-book">
+									<span class="content-info-book-title">Lançamento:</span>
+									<span class="content-info-book-result"><?= $this->view->book['data_lancamento'] ?></span>
+								</div>
+
+								<div class="content-info-book">
+									<span class="content-info-book-title">Autor:</span>
+									<span class="content-info-book-result"><?= $this->view->book['autor'] ?></span>
+								</div>
+
+								<div class="content-info-book" id="favoritando">
+									<span class="content-info-book-title">
+										<div class="content-heart">
+											<?php if ($this->view->favorito) { ?>
+												<i class="fas fa-heart" id="heart-rf" title="Remover favorito"></i>
+											<?php } else { ?>
+												<i class="far fa-heart" id="heart-f" title="Favoritar"></i>
+											<?php } ?>
+										</div>
+									</span>
+									<span class="content-info-book-result">Favoritar</span>
+								</div>
+
+								<div class="content-info-book-description">
+									<p>
+										<?= $this->view->book['desc_book'] ?>									
+									</p>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-lg-3 sidebar-book">
+					<div class="container-img-book d-none d-md-flex">
+						<img src="/imagens/books/<?= $this->view->book['img'] ?>" alt="" class="img">
+					</div>
+					<h3 class="title-book"><?= $this->view->book['titulo'] ?></h3>
+
+					<div class="content-info-book">
+						<span>Páginas: </span>
+						<span> <?= $this->view->book['paginas'] ?></span>
+					</div>
+
+					<div class="content-info-book">
+						<span>Preço:</span>
+						<span> <?= $this->view->book['preco'] ?></span>
+					</div>
+
+					<div class="content-info-book-button">
+						<?php if ($this->view->pay) { ?>
+							<a href="/meus_livros" type="button" class="pay">Meus Livros</a>
+						<?php } else { ?>
+							<button type="button" class="pay" id="comprar">Comprar</button>
+						<?php } ?>
+					</div>
+				</div>
+
+				<div class="order-2 order-md-1 col-md-8 col-lg-9 box-book">
+					<?php if (count($this->view->books) > 0) { ?>
+						<div class="container-fluid content-top" id="card-dark">
+							<h3 class="title">Outros livros de <?= $this->view->book['autor'] ?></h3>
+							<div class="row">
+								<?php 
+									$this->view->renderBook->__set('books', $this->view->books);
+									$this->view->renderBook->createBooks(false);
+								?>
+							</div>
+						</div>
+					<?php } ?>
+
+					<div class="container-fluid content-top" id="card-dark">
+						<h3 class="title">Outros livros</h3>
+						<div class="row">
+							<?php 
+								$this->view->renderBook->__set('books', $this->view->other);
+								$this->view->renderBook->createBooks(false);
+							?>
+						</div>
+					</div>
+				</div>
+
+				<div class="order-1 order-md-2 col-md-4 col-lg-3 sidebar-book pt-5" id="autor-perfil">
+					<div class="container-img-book content-top">
+						<h2 class="autor">Autor</h2>
+						<img src="/imagens/autores/<?= $this->view->book['autor_img'] ?>" alt="" class="img img-autor">
+						
+						<div class="desc-perfil">
+
+							<a href="/autores/autor?autor=<?= $this->view->book['diretorio_autor'] ?>" class="title text-center"><?= $this->view->book['autor'] ?></a>
+							<p class="text-perfil">
+								<?= $this->view->book['desc_autor'] ?>
+							</p>
+							<span class="info-perfil">
+								<?= $this->view->book['estado_civil'] != '' ? $this->view->book['estado_civil'].'(a) - ' : ''?> <?= getAnosFromDate($this->view->book['data_nascimento']) ?> anos
+							</span>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</section>
+
+<div id="confirm">
+	<div class="container-confirm">
+		<div class="confirm">
+			<h3 class="title-confirm">Confirmar Compra</h3>		
+
+			<div class="table-check">
+				<div class="content-check-table">
+					<div class="content-title">
+						<span class="title-check">
+							Moedas:
+						</span>
+					</div>
+					<div class="content-result">
+						<span class="preco">
+							R$ 00,00
+						</span>
+					</div>
+				</div>
+
+				<div class="content-check-table">
+					<div class="content-title">
+						<span class="title-check">
+							Livro: <span class="title-book-check"><?= $this->view->book['titulo'] ?></span>
+						</span>
+					</div>
+					<div class="content-result">
+						<span class="preco">
+							R$ <?= $this->view->book['preco'] ?>
+						</span>
+					</div>
+				</div>
+
+				<div class="content-check-table">
+					<div class="content-title">
+						<span class="title-check">
+							Desconto:
+						</span>
+					</div>
+					<div class="content-result">
+						<span class="preco">
+							R$ -<?= $this->view->book['preco'] ?>
+						</span>
+					</div>
+				</div>
+
+				<div class="content-check-table">
+					<div class="content-title">
+						<span class="title-check">
+							Total:
+						</span>
+					</div>
+					<div class="content-result">
+						<span class="preco">
+							R$ 00,00
+						</span>
+					</div>
+				</div>
+
+				<div class="content-info-book-button">
+					<button class="cancel">
+						Cancelar
+					</button>
+					<a href="/payBook?book=<?= $_GET['book'] ?>&autor=<?= $_GET['autor'] ?>" type="button" class="pay">Comprar</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

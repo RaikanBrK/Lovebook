@@ -1,0 +1,261 @@
+<?php 
+	function activeMenu($link) {
+		$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+		return $link == $url ? 'active' : '';
+	}
+?>
+
+<html lang="pt-br">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta charset="utf-8">
+
+		<!-- Bootstrap Css -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="/fontawesome/css/all.css">
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap" rel="stylesheet"> 
+
+		<!-- Estilo Css -->
+		<link rel="stylesheet" type="text/css" href="/css/estilo.css">
+
+		<?php 
+			if (isset($this->view->css)) {
+				foreach ($this->view->css as $indice => $estilo) {
+					echo "<link rel='stylesheet' type='text/css' href='/css/". $estilo .".css'>";
+				}
+			}
+		?>
+
+		<link rel="stylesheet" type="text/css" href="/css/media-query.css">
+
+		<?php 
+			$title = isset($this->view->title) ? $this->view->title : 'Home ';
+		?>
+		<title>LoveBook - <?= $title ?></title>
+		<link rel="icon" href="/imagens/favicon.png">
+
+		<!-- Bootstrap JS -->
+		<script
+			  src="https://code.jquery.com/jquery-3.5.1.js"
+			  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+			  crossorigin="anonymous"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	</head>
+	<body>
+
+		<header id="header">
+
+			<nav id="navegacao" class="content">
+				
+				<div class="container-logo">
+					<a href="/" class="logo">LoveBook</a>
+				</div>
+
+				<button type="button" id="hamburguer">
+					<i class="fas fa-bars icon"></i>
+				</button>
+
+
+				<div class="menu">
+
+					<div id="menu">
+						<div class="menu-container">
+							<ul class="menu-itens">
+
+								<li class="menu-item">
+									<a href="/livros" class="menu-link <?= activeMenu('/livros') ?>"> <i class="fas fa-book d-block d-md-none"></i> Livros</a>
+								</li>
+
+								<li class="menu-item">
+									<a href="/autores" class="menu-link <?= activeMenu('/autores') ?>"> <i class="fas fa-users d-block d-md-none"></i> Autores</a>
+								</li>
+							</ul>
+						</div>
+
+
+						<form action="/search-book" class="container-search m-0">
+							<div class="search">
+								<div class="container-input-search">
+									<input type="text" id="busca" name="busca" autocomplete="off" placeholder="Procure um livro.." class="form-control">
+									
+									<button type="submit" class="icon-search">
+										<i class="fas fa-search"></i>
+									</button>
+
+									<div class="help-search">
+										
+										<ul class="list-book-search">
+											<div class="search-content-books">
+											</div>
+
+											<div class="search-content-autores">
+											</div> 
+										</ul>
+
+									</div>
+
+								</div>
+							</div>
+
+						</form>
+							
+						<div class="container-user">
+							<i class="fas fa-user-circle user"></i>
+
+							<div class="tools-user">
+								<ul class="tool-user">
+									<li class="tool-item">
+										<a href="/meus_livros" class="tool-link group-list">Meus Livros</a>
+									</li>
+									<li class="tool-item">
+										<a href="/meus_favoritos" class="tool-link group-list">Meus Favoritos</a>
+									</li>
+									<li class="tool-item">
+										<a href="/configuracoes" class="tool-link group-list">configurações</a>
+									</li>
+									<li class="tool-item">
+										<a href="/loggout" class="tool-link group-list">Deslogar</a>
+									</li>
+								</ul>
+								
+							</div>
+						</div>
+					</div>		
+				</div>
+			</nav>
+		</header>
+		
+		<?php $this->content() ?>
+
+		<footer id="footer">
+	
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row" id="group-footer">
+						<div class="d-none d-lg-block col-lg-3">
+							<div class="container-logo">
+								<a href="/" class="logo">LoveBook</a>
+							</div>	
+						</div>
+
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<h3 class="title-footer">Acessar</h3>
+							<ul id="acessar">
+								<li>
+									<a href="/configuracoes" class="acessar-link">Configurações da Conta</a>
+								</li>
+
+								<li>
+									<a href="/meus_livros" class="acessar-link">Meus Livros</a>
+								</li>
+
+								<li>
+									<a href="/meus_favoritos" class="acessar-link">Meus Favoritos</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<h3 class="title-footer">Siga-nos</h3>
+
+							<div class="container-fluid">
+								<div class="row" class="content-footer-icons-margin">
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-twitter"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-facebook-f"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-instagram"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-google-plus-g"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-youtube"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-linkedin-in"></i>
+										</a>
+									</div>
+								</div>
+							</div>					
+						</div>
+
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<h3 class="title-footer">Formas de Pagamentos</h3>
+
+							<div class="container-fluid">
+								<div class="row" class="content-footer-icons-margin">
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-cc-visa"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-cc-mastercard"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-cc-paypal"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-cc-discover"></i>
+										</a>
+									</div>
+
+								</div>
+							</div>	
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</footer>
+		
+		<!-- Script JS -->
+		<script src='/js/script.js'></script>
+		<?php
+			if (isset($this->view->js)) {
+				foreach ($this->view->js as $indice => $script) {
+					echo "<script src='/js/". $script .".js'></script>";
+				}
+			}
+		?>
+
+	</body>
+</html>

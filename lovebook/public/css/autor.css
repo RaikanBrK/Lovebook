@@ -1,0 +1,25 @@
+.autor {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 20px 0;
+}
+
+.img-autor {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.title-autor {
+	font-size: 1em;
+	color: #e9e0e0;
+	text-align: center;
+}
+
+.title-autor:hover {
+	text-decoration: none;
+	color: white;
+}

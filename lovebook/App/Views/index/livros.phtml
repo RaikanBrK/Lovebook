@@ -1,0 +1,22 @@
+<div class="container-fluid" id="content-box-list">
+	<div class="row w-100">
+		<div class="conteudo col-12">
+			<div class="conteudo-body">
+				<div id="card-dark" class="container">
+					<div class="row">
+						<?php
+							if (count($this->view->newBooks) > 0) { ?>
+								<h3 class="title-content col-12">Livros</h3>
+							<?php
+								$this->view->renderBook->__set('books', $this->view->newBooks);
+								$this->view->renderBook->createBooks(false); 
+							} else {
+						?>
+						<h4 class="not-books">Não há livros para mostrar</h4>
+						<?php } ?>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>	

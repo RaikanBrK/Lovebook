@@ -1,0 +1,80 @@
+@media (max-width: 575.98px) {
+	
+}
+
+@media (max-width: 767.98px) { 
+	.title-dashboard {
+		display: none;
+	}
+
+	#hamburguer {
+		display: flex;
+	}
+
+	#menu-dashboard {
+		width: min-content;
+	}
+
+	.title-collection-item {
+		display: none;
+		font-size: 0.9em;
+	}
+}
+
+@media (max-width: 991.98px) {
+
+}
+
+@media (max-width: 1199.98px) { 
+
+}
+
+@media (min-width: 768px) {
+	.title-collection-item {
+		display: block !important;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+	
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+}
+
+@media (min-width: 1200px) { 
+
+}
+
+
+@media (max-width: 450px) {
+	#hamburguer {
+		padding: 10px;
+	}
+
+	#hamburguer > button {
+		padding: 6px 10px;
+	}
+
+	.item-dashboard > i.fa-caret-right {
+		display: none;
+	}
+
+	.item-dashboard,
+	.collection-dashboard {
+		width: 100%;
+	}
+
+	.icon-collection-item {
+		margin: auto;
+	}
+
+	.title-collection-item {
+		font-size: 0.8em;
+	}
+}

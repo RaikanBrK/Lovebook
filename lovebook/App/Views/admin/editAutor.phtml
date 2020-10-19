@@ -1,0 +1,73 @@
+<?php 
+	function verificarSelect($text, $esCivil) {
+		return $esCivil == $text ? 'selected' : '';
+	}
+?>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="conteudo col-12">
+			<div class="conteudo-header">
+				<h2 class="conteudo-title">Editar Autor</h2>
+				<span class="for-itens-full">* Obrigatórios</span>
+			</div>
+
+			<div class="conteudo-body">
+				<form action="/dashboard/editando_autor_adm?id=<?= $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
+
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="autor">Nome do autor *</label>
+							<input type="text" class="form-control" id="autor" name="autor" placeholder="Digite o nome do autor" autocomplete="off" required="" value="<?= $this->view->autor['nome'] ?>">
+							<span class="help-digit"></span>
+						</div>
+
+						<div class="form-group col-md-auto">
+							<label for="image" class="label-img">
+								<i class="fas fa-image"></i>
+								<img src="/imagens/autores/<?= $this->view->autor['img'] ?>" alt="" class="img-autor">
+								<input type="file" class="form-control d-none" accept="image/png, image/jpg, image/jpeg" id="image" name="image"> 
+								<span id="result">
+									<i class="fas fa-check text-warning"></i>
+									<span class="title-img"></span>
+								</span>
+								<span class="help-digit"></span>
+							</label>							
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-5" id="list-autores">
+							<label for="esCivil">Estado Civil</label>
+							<select id="esCivil" name="esCivil" class="form-control">
+								<option disabled>Escolher...</option>
+								<option value="solteiro" <?= verificarSelect('solteiro', $this->view->autor['estado_civil']); ?> >Solteiro</option>
+								<option value="casado" <?= verificarSelect('casado', $this->view->autor['estado_civil']); ?> >Casado</option>
+								<option value="separado" <?= verificarSelect('separado', $this->view->autor['estado_civil']); ?> >Separado</option>
+								<option value="divorciado" <?= verificarSelect('divorciado', $this->view->autor['estado_civil']); ?> >Divorciado</option>
+								<option value="viuvo" <?= verificarSelect('viuvo', $this->view->autor['estado_civil']); ?> >Viúvo</option>
+								<option value="outro" <?= verificarSelect('outros', $this->view->autor['estado_civil']); ?> >Outro</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-7">
+							<label for="data_nascimento">Data de Nascimento *</label>
+							<input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required="" value="<?= $this->view->autor['data_nascimento'] ?>">
+							<span class="help-digit"></span>
+						</div>	
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col">
+					    	<label for="desc">Descrição *</label>
+					    	<textarea class="form-control w-100" id="desc" name="desc" rows="4" placeholder="Digite informações sobre o autor"><?= $this->view->autor['desc_autor'] ?></textarea>
+					    	<span class="help-digit"></span>
+					  	</div>				
+					</div>		
+
+					<button type="submit" class="btn btn-primary ml-auto d-block">Editar autor</button>
+				</form>
+			</div>		
+		</div>
+	</div>
+</div>	

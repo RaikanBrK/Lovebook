@@ -1,0 +1,44 @@
+#autor-perfil, 
+#books-autor {
+	padding: 20px;
+}
+
+#books-autor {
+	background: #E4F6E1;
+}
+
+#autor-perfil {
+	background: #A98888;
+	box-shadow: -3px 0px 3px #6F6868;
+}
+
+.title {
+	color: #425A0E;
+	font-weight: 600;
+	font-size: 1.4em;
+}
+
+.img-perfil {
+	max-width: 100%;
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 50%;
+	display: block;
+	margin: auto auto 20px auto;
+}
+
+.text-perfil {
+	text-align: center;
+	font-size: 0.9em;
+	color: black;
+	margin: 0;
+}
+
+.info-perfil {
+	font-size: 0.8em;
+	color: #5a3333;
+	text-align: center;
+	display: block;
+	letter-spacing: 0.6px;
+}

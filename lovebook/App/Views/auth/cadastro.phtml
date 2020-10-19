@@ -1,0 +1,109 @@
+<?php session_start(); ?>
+<section>
+	<div class="content">
+
+		<div class="box">
+			<form action="/criarCadastroUser" method="POST">
+				<h1 class="title-content">Cadastro</h1>
+				<span class="desc-title">* Obrigatórios</span>
+				<div class="form-row">
+					<div class="form-group col-md-4 mb-3">
+						<label for="nome">Primeiro nome *</label>
+						<input type="text" autocomplete="off" class="form-control" id="nome" name="nome" placeholder="Digite seu primeiro nome" required>
+						<span class="help-digit"></span>
+					</div>
+
+					<div class="form-group col-md-4 mb-3">
+						<label for="sobrenome">Sobrenome</label>
+						<input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome">
+					</div>
+
+					<div class="form-group col-md-4 mb-3">
+						<label for="usuario">Usuário *</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroupPrepend2">@</span>
+							</div>
+							<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" aria-describedby="inputGroupPrepend2" required>
+						</div>
+						<span class="help-digit"></span>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6 mb-3">
+						<label for="email">Email *</label>
+						<input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" required>
+					</div>
+
+					<div class="form-group col-md-3 mb-3">
+						<label for="cpf">CPF *</label>
+						<input type="text" autocomplete="off" class="form-control" id="cpf" name="cpf" placeholder="Ex: 000.000.000-00" required>
+						<span class="help-digit"></span>
+					</div>
+
+					<div class="form-group col-md-3 mb-3">
+						<label for="cep">CEP</label>
+						<input type="text" class="form-control" id="cep" name="cep" placeholder="Ex: 00000-000">
+						<span class="help-digit"></span>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-5 mb-3">
+						<label for="numero">Número Celular *</label>
+						<input type="text" class="form-control" id="numero" name="numero" placeholder="Ex: (11) 0000-0000" required>
+						<span class="help-digit"></span>
+					</div>
+
+					<div class="form-group col-md-4 mb-3">
+						<label for="senha">Senha *</label>
+						<input type="password" class="form-control" id="senha" name="senha" placeholder="Digite uma senha" required>
+						<span class="help-digit"></span>
+					</div>
+
+					<div class="form-group col-md-3 mb-3">
+						<label for="confirmSenha">Senha novamente *</label>
+						<input type="password" class="form-control" id="confirmSenha" name="confirmSenha" placeholder="Digite a senha novamente" required>
+						<span class="help-digit"></span>
+					</div>
+				</div>
+
+				<div class="col-auto my-1 p-0">
+					<div class="custom-control custom-checkbox mr-sm-2">
+						<input type="checkbox" class="custom-control-input" id="customControlAutosizing" required="">
+						<label class="custom-control-label" for="customControlAutosizing">Concordo com os termos e condições</label>
+					</div>
+				</div>
+
+				<button class="btn btn-primary mt-2" type="submit">Enviar</button>
+			</form>
+		</div>
+
+		<?php
+			if (isset($_SESSION['lovebook']['auth']) && isset($_SESSION['lovebook']['auth']['status']) ) {
+		?>
+			<div class="box-notification">
+				
+				<h1 class="text-notification">
+					<?php 
+						if($_SESSION['lovebook']['auth']['status']) {
+							$text = 'Conta criada com sucesso!';
+						} else if(isset($_SESSION['lovebook']['auth']['error'])) {
+							$text = $_SESSION['lovebook']['auth']['error']['mensagem'];
+						} else {
+							$text = 'Algo deu errado! Verifique seus dados e tente novamente';
+						}
+						echo $text;
+
+						unset($_SESSION['lovebook']['auth']);
+					?>
+
+				</h1>
+			</div>
+		<?php } ?>
+
+	</div>
+</section>
+
+

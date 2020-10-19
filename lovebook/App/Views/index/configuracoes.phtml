@@ -1,0 +1,115 @@
+<?php 
+	$senha = base64_decode($this->view->user['senha']);
+	$count_senha = '';
+	for ($i = 0; $i < strlen($senha); $i++) { $count_senha .= '*';}
+
+	$usuario = str_replace('@', '', $this->view->user['usuario']);
+?>
+<section>
+	<div class="content">
+
+		<div class="box">
+			<form action="/updateDadosAccount" method="POST">
+				<h1 class="title-content">Editar Perfil</h1>
+				<span class="desc-title">* Obrigatórios</span>
+				<div class="form-row">
+					<div class="form-group col-md-4 mb-3">
+						<label for="nome">Primeiro nome *</label>
+						<input type="text" autocomplete="off" class="form-control" id="nome" name="nome" placeholder="Digite seu primeiro nome" value="<?= $this->view->user['nome'] ?>" required>
+						<span class="help-digit"></span>
+					</div>
+
+					<div class="form-group col-md-4 mb-3">
+						<label for="sobrenome">Sobrenome</label>
+						<input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" value="<?= $this->view->user['sobrenome'] ?>">
+					</div>
+
+					<div class="form-group col-md-4 mb-3">
+						<label for="usuario">Usuário *</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroupPrepend2">@</span>
+							</div>
+							<input type="text" autocomplete="off" class="form-control" id="usuario" name="usuario" placeholder="Usuário" aria-describedby="inputGroupPrepend2" required value="<?= $usuario ?>">
+						</div>
+						<span class="help-digit"></span>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6 mb-3">
+						<label for="email">Email *</label>
+						<input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" required value="<?= $this->view->user['email'] ?>">
+					</div>
+
+					<div class="form-group col-md-3 mb-3">
+						<label for="cpf">CPF *</label>
+						<input type="text" class="form-control" id="cpf" name="cpf" placeholder="Ex: 000.000.000-00" required value="<?= $this->view->user['cpf'] ?>">
+						<span class="help-digit"></span>
+					</div>
+
+					<div class="form-group col-md-3 mb-3">
+						<label for="cep">CEP</label>
+						<input type="text" class="form-control" id="cep" name="cep" placeholder="Ex: 00000-000" value="<?= $this->view->user['cep'] ?>">
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-5 mb-3">
+						<label for="numero">Número Celular *</label>
+						<input type="text" class="form-control" id="numero" name="numero" placeholder="Ex: (11) 0000-0000" required value="<?= $this->view->user['numero'] ?>">
+						<span class="help-digit"></span>
+					</div>
+
+					<div class="form-group col-md-4 mb-3" id="content-senha">
+						<label for="senha">Senha Atual *</label>
+						<input type="password" class="form-control" id="senha" name="senha" placeholder="<?= $count_senha ?>">
+						<span class="help-digit"></span>
+					</div>
+
+					<div class="form-group col-md-3 mb-3" id="content-new-senha">
+						<label for="newSenha">Nova Senha *</label>
+						<input type="password" class="form-control" id="newSenha" name="newSenha" placeholder="Digite a sua nova senha">
+						<span class="help-digit"></span>
+					</div>
+				</div>
+
+				<div class="col-auto">
+						<div class="custom-control custom-checkbox mr-sm-2">
+							<input type="checkbox" id="change-senha" name="change-senha" class="custom-control-input">
+							<label class="custom-control-label" for="change-senha">Mudar Senha?</label>
+						</div>
+					</div>
+
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-danger mt-2 mr-3" type="submit">Cancelar</button>
+					<button class="btn btn-primary mt-2" type="submit">Salvar</button>
+				</div>
+			</form>
+		</div>
+
+		<?php
+			if (isset($_SESSION['lovebook']['auth']) && isset($_SESSION['lovebook']['auth']['status']) ) {
+		?>
+			<div class="box-notification">
+				
+				<h1 class="text-notification">
+					<?php 
+						if($_SESSION['lovebook']['auth']['status']) {
+							$text = 'Perfil alterado com sucesso!';
+						} else if(isset($_SESSION['lovebook']['auth']['error'])) {
+							$text = $_SESSION['lovebook']['auth']['error']['mensagem'];
+						} else {
+							$text = 'Algo deu errado! Verifique seus dados e tente novamente';
+						}
+						echo $text;
+
+						unset($_SESSION['lovebook']['auth']);
+					?>
+
+				</h1>
+			</div>
+		<?php } ?>
+
+	</div>
+</section>

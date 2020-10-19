@@ -1,0 +1,16 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="conteudo col-12">
+			<div class="conteudo-header">
+				<h2 class="conteudo-title">Lista de administradores</h2>
+			</div>
+
+			<div class="conteudo-body">
+				<?php 
+					$this->view->renderAdm->__set('adminitradores', $this->view->adm);
+					$this->view->renderAdm->renderAdm();
+				?>				
+			</div>		
+		</div>
+	</div>
+</div>

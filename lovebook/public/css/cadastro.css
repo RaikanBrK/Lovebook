@@ -1,0 +1,44 @@
+.menu > a {
+	color: white;
+	float: right;
+}
+
+.menu > a:hover {
+	color: wheat;
+	text-decoration: none;
+}
+
+.box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.box form {
+	width: 85vw;
+	padding: 30px 50px;
+	background: #1f1f1b;
+	color: white;
+	border-radius: 12px;
+}
+
+.box label {
+	color: white;
+}
+
+.title-content {
+	font-size: 1.5em;
+	margin: 0;
+}
+
+.desc-title {
+    text-align: center;
+    display: block;
+    margin-bottom: 25px;
+    font-size: 0.8em;
+    color: #aca79e;
+}
+
+#login .box .form-row {
+	margin-bottom: 20px;
+}

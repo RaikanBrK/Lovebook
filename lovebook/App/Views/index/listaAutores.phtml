@@ -1,0 +1,24 @@
+<div class="container-fluid" id="content-box-list">
+	<div class="row w-100">
+		<div class="conteudo col-12">
+
+			<div class="conteudo-body">
+				<div id="card-dark" class="container">
+					<div class="row">
+						<?php
+							if (count($this->view->autores) > 0) { ?>
+								<h3 class="title-content col-12" style="color: #443c2d">Autores</h3>
+							<?php
+								$this->view->renderAutores->__set('autores', $this->view->autores);
+								$this->view->renderAutores->createAutor(20, 0);
+							} else {
+						?>
+						<h4 class="not-books">Não há autores para mostrar</h4>
+						<?php } ?>
+					</div>
+				</div>
+				
+			</div>		
+		</div>
+	</div>
+</div>

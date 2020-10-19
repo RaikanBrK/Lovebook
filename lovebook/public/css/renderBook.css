@@ -1,0 +1,72 @@
+.cartao {
+	margin: 1.5em 0;
+}
+
+.img-cartao {
+	width: 100%;
+	height: 225px;
+	object-fit: cover;
+}
+
+.title-cartao,
+a:not([href]) {
+	color: #CFA6A6;
+	font-size: 0.93em;
+	margin: 10px 0;
+	display: block;
+
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.title-cartao:hover,
+a:not([href]):hover {
+	text-decoration: none;
+	color: white;
+}
+
+.info-cartao {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #B4B7BF;
+	padding-top: 10px;
+}
+
+.autor-cartao {
+	color: #7B9E18;
+	margin: 0;
+	font-size: 0.9em;
+}
+
+.autor-cartao:hover {
+	color: yellow;
+	text-decoration: none;
+}
+
+.preco-cartao {
+	color: #53E50E;
+	font-size: 0.7em;
+	min-width: 20%;
+	text-align: right;
+}
+
+.preco-cartao:hover {
+	color: yellow;
+	cursor: default;
+}
+
+#card-dark .cartao {
+	background: #070907de;
+}
+
+#card-dark .title-content {
+	color: #4d4d0e;
+	
+}
+
+#card-dark .desc-cartao {
+	padding: 5px 10px;
+}

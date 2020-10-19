@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="conteudo col-12">
+			<div class="conteudo-header">
+				<h2 class="conteudo-title">Remover Livros - Selecione o livro</h2>
+			</div>
+
+			<div class="conteudo-body">
+				<div id="card-dark" class="container">
+					<div class="row">
+						<?php 
+							$this->view->renderBook->__set('books', $this->view->newBooks);
+							$this->view->renderBook->createBooks(false);
+						?>
+					</div>
+				</div>
+				
+			</div>		
+		</div>
+	</div>
+</div>
+
+
+<div id="confirmacao">
+	<div class="confirm">
+		<div class="box-confirm">
+			<h1 class="title-confirm">Realmente deseja remover esse livro?</h1>
+			<div class="buttons-confirm">
+				<button type="button" class="btn btn-danger cancel">
+					Não
+				</button>
+				<button type="button" class="btn btn-primary send" data-id="">
+					Sim
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

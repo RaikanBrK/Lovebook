@@ -1,0 +1,65 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="conteudo col-12">
+			<div class="conteudo-header">
+				<h2 class="conteudo-title">Criar Autor</h2>
+				<span class="for-itens-full">* Obrigatórios</span>
+			</div>
+
+			<div class="conteudo-body">
+				<form action="/dashboard/create_autor_adm" method="POST" enctype="multipart/form-data">
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="autor">Nome do autor *</label>
+							<input type="text" class="form-control" autocomplete="off" id="autor" name="autor" placeholder="Digite o nome do autor" required="">
+							<span class="help-digit"></span>
+						</div>
+
+						<div class="form-group col-md-auto" id="content-img">
+							<label for="image" class="label-img">
+								<i class="fas fa-image"></i>
+								<input type="file" class="form-control d-none" accept="image/png, image/jpg, image/jpeg" id="image" name="image" required=""> 
+								<span id="result">
+									<i class="fas fa-check text-warning"></i>
+									<span class="title-img"></span>
+								</span>
+								<span class="help-digit"></span>
+							</label>							
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-5" id="list-autores">
+							<label for="esCivil">Estado Civil</label>
+							<select id="esCivil" name="esCivil" class="form-control">
+								<option selected disabled>Escolher...</option>
+								<option value="solteiro">Solteiro</option>
+								<option value="casado">Casado</option>
+								<option value="separado">Separado</option>
+								<option value="divorciado">Divorciado</option>
+								<option value="viuvo">Viúvo</option>
+								<option value="outro">Outro</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-7">
+							<label for="data_nascimento">Data de Nascimento *</label>
+							<input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required="">
+							<span class="help-digit"></span>
+						</div>	
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col">
+					    	<label for="desc">Descrição *</label>
+					    	<textarea class="form-control w-100" id="desc" name="desc" rows="4" placeholder="Digite informações sobre o autor"></textarea>
+					    	<span class="help-digit"></span>
+					  	</div>				
+					</div>		
+
+					<button type="submit" class="btn btn-primary ml-auto d-block" id="send">Criar autor</button>
+				</form>
+			</div>		
+		</div>
+	</div>
+</div>	

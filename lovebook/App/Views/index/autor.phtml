@@ -1,0 +1,54 @@
+<?php 
+	date_default_timezone_set('America/Sao_Paulo');
+	function getAnosFromDate($date) {
+		$dateAtual = new DateTime(Date('Y-m-d'));
+		$sDate= explode('-', $date);
+		$date = new DateTime($sDate[0].'-'.$sDate[1].'-'.$sDate['2']);
+
+		$dateInterval = $date->diff($dateAtual);
+		$anos = floor($dateInterval->days / 365);
+		return $anos;
+	}
+?>
+
+<section id="autores-books">
+	<div class="content">
+		<div class="container">
+			<div class="row box-autor"> 
+				<div class="order-2 order-md-1 col-md-8 col-lg-9" id="books-autor">
+					<h2 class="title">Livros de <?= $this->view->autor['nome'] ?></h2>
+					<div id="card-dark">
+						<div class="container-fluid">
+							
+							<div class="row">
+								<?php 
+									$this->view->renderBook->__set('books', $this->view->books);
+									$this->view->renderBook->createBooks(false);
+								?>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="order-1 order-md-2 col-md-4 col-lg-3" id="autor-perfil">
+
+					<img src="/imagens/autores/<?= $this->view->autor['img'] ?>" alt="Imagem do autor <?= $this->view->autor['nome'] ?>" class="img-perfil">
+
+					<div class="desc-perfil">
+						
+						<h1 class="title text-center"><?= $this->view->autor['nome'] ?></h1>
+						<p class="text-perfil">
+							<?= $this->view->autor['desc_autor'] ?>
+						</p>
+						<span class="info-perfil">
+							<?= $this->view->autor['estado_civil'] != '' ? $this->view->autor['estado_civil'].'(a) - ' : ''?> <?= getAnosFromDate($this->view->autor['data_nascimento']) ?> anos
+						</span>
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

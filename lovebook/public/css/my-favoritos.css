@@ -1,0 +1,14 @@
+.box {
+	width: 85vw;
+	padding: 30px 50px;
+	background: #1f1f1b;
+	color: white;
+	border-radius: 12px;
+	margin: auto;
+	max-width: 100%;
+
+	min-height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

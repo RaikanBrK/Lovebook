@@ -1,0 +1,43 @@
+#autores-books {
+	background: #6F6363;
+}
+
+#autores-books .title-content {
+	color: #dddd05;
+}
+
+.carousel-inner {
+	padding: 10px 25px;
+}
+
+.carousel-indicators {
+	bottom: -15px;
+}
+
+.carousel-item {
+	padding: 20px 10px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+	width: auto;
+}
+
+.carousel-control-prev {
+	justify-content: flex-start;
+}
+
+.carousel-control-next {
+	justify-content: flex-end;
+}
+
+.carousel-indicators li {
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+}
+
+.container-button-books {
+	display: flex;
+	justify-content: flex-end;;
+}

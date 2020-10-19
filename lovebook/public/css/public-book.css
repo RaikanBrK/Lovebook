@@ -1,0 +1,43 @@
+.label-img {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 0 2em;
+	flex-direction: column;
+}
+
+.label-img > i {
+	font-size: 5em;
+}
+
+.img-book {
+	width: 150px
+}
+
+#result {
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.title-img {
+	white-space: nowrap;
+	width: 70%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 0.9em;
+	text-align: center;
+	display: bloc;
+}
+
+#cancel {
+	cursor: pointer;
+}
+
+#cancel:hover {
+	color: green;
+}
+
+#novoAutor {
+	display: none;
+}

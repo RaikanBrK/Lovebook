@@ -1,0 +1,175 @@
+@media (max-width: 575.98px) {
+	.autor {
+		margin: 10px;
+	}
+
+	.img-autor {
+		width: 100px;
+		height: 100px;
+	}
+
+	.title-autor {
+		font-size: 0.7em;
+	}
+}
+
+@media (max-width: 767.98px) { 
+	.img {
+		width: 50%;
+	}
+
+	.sidebar-book .img-autor {
+		width: 200px;
+		height: 200px;
+	}
+
+	.sidebar-book {
+		box-shadow: none;
+	}
+
+	#autor-perfil {
+		margin-top: 60px;
+	}
+
+	#hamburguer {
+		display: block;
+		grid-area: burguer;
+	}
+
+	.menu {
+		grid-area: menu;
+		display: none;
+	}
+
+	#menu {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-areas: "menu-container menu-container" "container-search container-user";
+	}
+
+	.menu-itens {
+		padding: 0 10px;
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.menu-item {
+		width: 100%;
+	}
+
+	.menu-link {
+		display: grid;
+		grid-template-columns: 30px 1fr;
+	}
+
+	.container-logo {
+		grid-area: logo;
+	}
+
+	#navegacao {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-areas: 
+			"logo burguer"
+			"menu menu";
+	}
+
+	.menu-container {
+		grid-area: menu-container;
+		margin: 10px 0;
+	}
+
+	.container-search {
+	    grid-area: container-search;
+	}
+
+	.container-user {
+		grid-area: container-user;
+	}
+
+	#layoutAuth .menu {
+		padding: 10px 0;
+	}
+
+	#layoutAuth .menu > a {
+		display: block;
+		width: 100%;
+		padding-left: 15px;
+	}
+}
+
+@media (max-width: 991.98px) {
+
+}
+
+@media (max-width: 1199.98px) { 
+
+}
+
+@media (min-width: 768px) {
+	.menu {
+		display: block !important;
+	}
+
+	#content-box-list {
+		min-height: 75vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+	.img-autor {
+		width: 120px;
+		height: 120px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+}
+
+@media (min-width: 1200px) { 
+
+}
+
+@media (min-width: 350px) and (max-width: 575.98px) {
+	.img-autor {
+		width: 100px;
+		height: 100px;
+	}
+
+	.title-autor {
+		font-size: 0.7em;
+	}
+}
+
+@media (max-width: 349.98px) {
+	.img-autor {
+		width: 70px;
+		height: 70px;
+	}
+
+	.title-autor {
+		font-size: 0.5em;
+	}
+}
+
+@media (max-width: 300px) {
+	#autores-books .carousel .carousel-inner .row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.autor {
+		margin: 5px 0;
+	}
+}

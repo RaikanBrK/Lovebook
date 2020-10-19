@@ -1,0 +1,83 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="conteudo col-12">
+			<div class="conteudo-header">
+				<h2 class="conteudo-title">Editar Livros - Selecione o livro</h2>
+			</div>
+
+			<div class="conteudo-body">
+				<form action="/dashboard/alter_book_adm?id=<?= $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
+					<div class="form-row">
+						<div class="form-group col">
+							<label for="titulo">Título</label>
+							<input type="text" autocomplete="off" class="form-control" id="titulo" name="titulo" placeholder="Digite o título do livro" value="<?= $this->view->book['titulo'] ?>" required="">
+							<span class="help-digit"></span>
+						</div>
+
+						<div class="form-group col-md-auto">
+							<label for="image" class="label-img">
+								<i class="fas fa-image"></i>
+								<img src="/imagens/books/<?= $this->view->book['img'] ?>" alt="<?= $this->view->book['titulo'] ?>" class="img-book">
+								<input type="file" class="form-control d-none" accept="image/png, image/jpg, image/jpeg" id="image" name="image"> 
+								<span id="result">
+									<i class="fas fa-check text-warning"></i>
+									<span class="title-img"></span>
+								</span>
+							</label>
+							<span class="help-digit"></span>						
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-5" id="list-autores">
+							<label for="autor">Autor</label>
+							<select id="autor" name="autor" class="form-control">
+								<?php foreach ($this->view->autores as $autor) { ?>
+									<option value="<?= $autor['id'] ?>" <?= $this->view->book['id_autor'] == $autor['id'] ? 'selected' : '' ?> >
+										<?= $autor['nome'] ?>	
+									</option>
+								<?php } ?>
+							</select>
+						</div>
+
+						<div class="form-group col-md-4">
+							<label for="data_lancamento">Data de Lançamento</label>
+							<input type="date" class="form-control" id="data_lancamento" name="data_lancamento" required="" value="<?= $this->view->book['data_lancamento'] ?>">
+							<span class="help-digit"></span>
+						</div>
+						
+						<div class="form-group col-md-3">
+							<label for="preco">Preço</label>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text">R$</div>
+								</div>
+								<input type="number" class="form-control" id="preco" name="preco" placeholder="Digite o preço que será vendido o livro" required="" value="<?= $this->view->book['preco'] ?>">
+							</div>
+							<span class="help-digit"></span>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-4">
+							<label for="paginas">Páginas</label>
+							<input type="number" class="form-control" id="paginas" name="paginas" placeholder="Número de páginas do livro" required="" value="<?= $this->view->book['paginas'] ?>">
+							<span class="help-digit"></span>
+						</div>				
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col">
+					    	<label for="desc">Descrição</label>
+					    	<textarea class="form-control w-100" id="desc" name="desc" rows="4" placeholder="Digite informações sobre o livro"><?= $this->view->book['desc_book'] ?></textarea>
+					    	<span class="help-digit"></span>
+					  	</div>				
+					</div>	
+
+					<button type="submit" class="btn btn-primary">Alter Livro</button>
+				</form>
+				
+			</div>		
+		</div>
+	</div>
+</div>	

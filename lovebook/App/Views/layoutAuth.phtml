@@ -1,0 +1,193 @@
+<html lang="pt-br">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta charset="utf-8">
+
+		<!-- Bootstrap Css -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="fontawesome/css/all.css">
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet"> 
+
+		<!-- Estilo Css -->
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+		<?php 
+			if (isset($this->view->css)) {
+				foreach ($this->view->css as $indice => $estilo) {
+					echo "<link rel='stylesheet' type='text/css' href='css/". $estilo .".css'>";
+				}
+			}
+		?>
+
+		<link rel="stylesheet" type="text/css" href="css/media-query.css">
+
+		<title>LoveBook - Autenticação</title>
+		<link rel="icon" href="/imagens/favicon.png">
+
+		<!-- Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	</head>
+	<body id="layoutAuth">
+
+		<header id="header">
+
+			<nav id="navegacao" class="content">
+				
+				<div class="container-logo">
+					<a href="/" class="logo">LoveBook</a>
+				</div>
+
+				<button type="button" id="hamburguer">
+					<i class="fas fa-bars icon"></i>
+				</button>
+
+
+				<div class="menu">
+					<?php if ($this->view->controller) { ?>
+						<a href="/cadastro">Cadastrar-se</a>
+					<?php } else { ?>
+						<a href="/login">Logar-se</a>
+					<?php } ?>
+				</div>
+
+
+
+			</nav>
+		</header>
+		
+		<?php $this->content() ?>
+
+		<footer id="footer">
+	
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row" id="group-footer">
+						<div class="d-none d-lg-block col-lg-3">
+							<div class="container-logo">
+								<a href="/" class="logo">LoveBook</a>
+							</div>	
+						</div>
+
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<h3 class="title-footer">Acessar</h3>
+							<ul id="acessar">
+								<li>
+									<a href="/" class="acessar-link">Minha Conta</a>
+								</li>
+
+								<li>
+									<a href="/" class="acessar-link">Meus Livros</a>
+								</li>
+
+								<li>
+									<a href="/" class="acessar-link">Meus Favoritos</a>
+								</li>
+
+								<li>
+									<a href="/" class="acessar-link">Livros Desejados</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<h3 class="title-footer">Siga-nos</h3>
+
+							<div class="container-fluid">
+								<div class="row" class="content-footer-icons-margin">
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-twitter"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-facebook-f"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-instagram"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-google-plus-g"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-youtube"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-linkedin-in"></i>
+										</a>
+									</div>
+								</div>
+							</div>					
+						</div>
+
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<h3 class="title-footer">Formas de Pagamentos</h3>
+
+							<div class="container-fluid">
+								<div class="row" class="content-footer-icons-margin">
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-cc-visa"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-cc-mastercard"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-cc-paypal"></i>
+										</a>
+									</div>
+
+									<div class="col-3 col-sm-6 col-lg-4">
+										<a href="">
+											<i class="fab fa-cc-discover"></i>
+										</a>
+									</div>
+								</div>
+							</div>	
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		<!-- Script JS -->
+		<script src='js/script.js'></script>
+		<script src='js/scriptAuth.js'></script>
+		<?php
+			if (isset($this->view->js)) {
+				foreach ($this->view->js as $indice => $script) {
+					echo "<script src='js/". $script .".js'></script>";
+				}
+			}
+		?>
+
+	</body>
+</html>
